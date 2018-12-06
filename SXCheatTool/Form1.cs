@@ -3,12 +3,15 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SXCheatTool
 {
     public partial class Form1 : Form
     {
+        private bool wordWrap = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -196,11 +199,11 @@ namespace SXCheatTool
                 text = "0" + T + Convert.ToInt32(radioButton2.Checked) + "F00" + textBox4.Text.PadLeft(10, '0') + text + System.Environment.NewLine;
                 text = text.Substring(0, 8) + " " + text.Substring(8);
                 text = text.Substring(0, 17) + " " + text.Substring(17);
-                textBox3.Text += text;
+                richTextBox1.Text += text;
             }
             if (comboBox1.SelectedIndex == 1)
             {
-                textBox3.Text += "20000000" + System.Environment.NewLine;
+                richTextBox1.Text += "20000000" + System.Environment.NewLine;
             }
             if (comboBox1.SelectedIndex == 2)
             {
@@ -242,7 +245,7 @@ namespace SXCheatTool
                     result += buttons[24];
                 if (checkBox18.Checked)
                     result += buttons[25];
-                textBox3.Text += "8" + result.ToString("X").PadLeft(7, '0') + System.Environment.NewLine;
+                richTextBox1.Text += "8" + result.ToString("X").PadLeft(7, '0') + System.Environment.NewLine;
             }
             if (comboBox1.SelectedIndex == 3)
             {
@@ -264,21 +267,21 @@ namespace SXCheatTool
                 text = "1" + T + Convert.ToInt32(radioButton2.Checked) + F + "00" + textBox4.Text.PadLeft(10, '0') + text + System.Environment.NewLine;
                 text = text.Substring(0, 8) + " " + text.Substring(8);
                 text = text.Substring(0, 17) + " " + text.Substring(17);
-                textBox3.Text += text;
+                richTextBox1.Text += text;
             }
             if (comboBox1.SelectedIndex == 4)
             {
                 count = Convert.ToInt32(textBox4.Text);
-                textBox3.Text += "300" + textBox4.Text + "0000 " + textBox5.Text.PadLeft(8, '0') + System.Environment.NewLine;
+                richTextBox1.Text += "300" + textBox4.Text + "0000 " + textBox5.Text.PadLeft(8, '0') + System.Environment.NewLine;
             }
             if (comboBox1.SelectedIndex == 5)
             {
-                textBox3.Text += "310" + count + "0000" + System.Environment.NewLine;
+                richTextBox1.Text += "310" + count + "0000" + System.Environment.NewLine;
             }
             if (comboBox1.SelectedIndex == 6)
             {
                 if (radioButton2.Checked)
-                    textBox3.Text += "400" + textBox4.Text.PadLeft(1, '0') + "0000 " + textBox5.Text.PadLeft(16, '0').Substring(0, 8) + " " + textBox5.Text.PadLeft(16, '0').Substring(8, 8) + System.Environment.NewLine;
+                    richTextBox1.Text += "400" + textBox4.Text.PadLeft(1, '0') + "0000 " + textBox5.Text.PadLeft(16, '0').Substring(0, 8) + " " + textBox5.Text.PadLeft(16, '0').Substring(8, 8) + System.Environment.NewLine;
                 if (radioButton1.Checked)
                 {
                     int T = 0;
@@ -290,7 +293,7 @@ namespace SXCheatTool
                         T = 4;
                     if (radioButton8.Checked)
                         T = 8;
-                    textBox3.Text += "5" + T + "1" + textBox4.Text.PadLeft(1, '0') + "00" + textBox5.Text.PadLeft(10, '0').Substring(0, 2) + " " + textBox5.Text.PadLeft(10, '0').Substring(2, 8) + System.Environment.NewLine;
+                    richTextBox1.Text += "5" + T + "1" + textBox4.Text.PadLeft(1, '0') + "00" + textBox5.Text.PadLeft(10, '0').Substring(0, 2) + " " + textBox5.Text.PadLeft(10, '0').Substring(2, 8) + System.Environment.NewLine;
                 }
             }
             if (comboBox1.SelectedIndex == 7)
@@ -304,7 +307,7 @@ namespace SXCheatTool
                     T = 4;
                 if (radioButton8.Checked)
                     T = 8;
-                textBox3.Text += "6" + T + "0" + textBox4.Text.PadLeft(1, '0') + "0000 " + textBox5.Text.PadLeft(16, '0').Substring(0, 8) + " " + textBox5.Text.PadLeft(16, '0').Substring(8, 8) + System.Environment.NewLine;
+                richTextBox1.Text += "6" + T + "0" + textBox4.Text.PadLeft(1, '0') + "0000 " + textBox5.Text.PadLeft(16, '0').Substring(0, 8) + " " + textBox5.Text.PadLeft(16, '0').Substring(8, 8) + System.Environment.NewLine;
             }
             if (comboBox1.SelectedIndex == 8)
             {
@@ -327,18 +330,18 @@ namespace SXCheatTool
                     C = 1;
                 if (radioButton13.Checked)
                     C = 4;
-                textBox3.Text += "7" + T + "0" + textBox4.Text + C + "000 " + textBox5.Text.PadLeft(8, '0') + System.Environment.NewLine;
+                richTextBox1.Text += "7" + T + "0" + textBox4.Text + C + "000 " + textBox5.Text.PadLeft(8, '0') + System.Environment.NewLine;
             }
         }
 
         private void button1_Click_1(object sender, EventArgs e) // assembly conversions
         {
-            MessageBox.Show("This feature will probably be worked on later. Since Team Xecuter did not release any additional information regarding conditional statements, there isn't much to do here.");
+            MessageBox.Show("This feature will probably be worked on later. Since Team Xecuter did not release any additional information regarding conditional statements, there isn't much to do here.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             string temp = "", temp2 = "";
-            string readall = textBox1.Text;
+            string readall = richTextBox2.Text;
             string line = null;
             StringReader LineString = new StringReader(readall);
-            textBox2.Text = "";
+            richTextBox3.Text = "";
             while (true)
             {
                 line = LineString.ReadLine();
@@ -390,10 +393,97 @@ namespace SXCheatTool
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var client = new WebClient())
+            new Thread(() =>
             {
-                client.DownloadFile("https://github.com/DarkFlare69/SXCheatTool/raw/master/Release/SXCheatTool.exe", "SX Cheat Tool-latest.exe");
-                MessageBox.Show("The latest update has just been downloaded! You can close this application and delete it. Run the 'SX Cheat Tool-latest.exe' file alongside this one.", "Finished");
+                Invoke(new Action(() =>
+                {
+                    checkForUpdatesToolStripMenuItem.Enabled = false;
+                }));
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile("https://github.com/DarkFlare69/SXCheatTool/raw/master/Release/SXCheatTool.exe", "SX Cheat Tool-latest.exe");
+                    DialogResult result = MessageBox.Show("The latest update has just been downloaded! You can close this application and delete it. Run the 'SX Cheat Tool-latest.exe' file alongside this one.\n\nDo you want to exit the program now?", "Finished", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(result.Equals(DialogResult.Yes))
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+                Invoke(new Action(() =>
+                {
+                    checkForUpdatesToolStripMenuItem.Enabled = true;
+                }));
+            }).Start();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.MinimumSize = this.Size;
+            this.reloadWordWrap(Properties.Settings.Default.WordWrap);
+        }
+
+        private void enableWordWrappToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.reloadWordWrap(!this.wordWrap);
+        }
+
+        private void reloadWordWrap(bool wordWrap)
+        {
+            this.wordWrap = wordWrap;
+            enableWordWrappToolStripMenuItem.Checked = wordWrap;
+
+            richTextBox1.WordWrap = !wordWrap;
+            richTextBox2.WordWrap = !wordWrap;
+            richTextBox3.WordWrap = !wordWrap;
+
+            Properties.Settings.Default.WordWrap = wordWrap;
+            Properties.Settings.Default.Save();
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.inputToolStripMenuItem_Click(sender, e);
+        }
+
+        private void inputToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            richTextBox2.Clear();
+            richTextBox3.Clear();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.reloadWordWrap(false);
+        }
+
+        private void exportCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "Text File|*.txt|Any File|*.*";
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                {
+                    RichTextBox selectedBox = null;
+                    if(tabControl1.SelectedIndex == 0)
+                    {
+                        selectedBox = richTextBox1;
+                    } else if(tabControl1.SelectedIndex == 1)
+                    {
+                        selectedBox = richTextBox3;
+                    } else
+                    {
+                        MessageBox.Show("This page has not been implemented yet!\nPlease contact the developer and report the issue.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    foreach(String line in selectedBox.Lines)
+                    {
+                        sw.WriteLine(line);
+                        sw.Flush();
+                    }
+                    sw.Close();
+                }
+
+                MessageBox.Show("The code has been successfully saved to the selected file.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
