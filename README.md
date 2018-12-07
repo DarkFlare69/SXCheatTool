@@ -5,9 +5,9 @@ This is a program I made to allow people ot make SX OS cheat codes easier. This 
 Download the latest version here: https://github.com/DarkFlare69/SXCheatTool/raw/master/Release/SXCheatTool.exe
 
 # Useful Links
-SX OS Website: https://sx.xecuter.com&nbsp;
-SX Code Thread: https://gbatemp.net/threads/cheat-codes-sx-os-add-and-request.520293&nbsp;
-SX Cheat Hacker Guide: https://sx.xecuter.com/download/cheathacker_guide.txt&nbsp;
+SX OS Website: https://sx.xecuter.com<br/>
+SX Code Thread: https://gbatemp.net/threads/cheat-codes-sx-os-add-and-request.520293<br/>
+SX Cheat Hacker Guide: https://sx.xecuter.com/download/cheathacker_guide.txt<br/>
 
 # Credits
 -DarkFlare for the program and idea
