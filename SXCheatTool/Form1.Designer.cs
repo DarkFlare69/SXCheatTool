@@ -41,6 +41,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
@@ -88,7 +89,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.usefulLinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -130,7 +134,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkForUpdatesToolStripMenuItem});
+            this.checkForUpdatesToolStripMenuItem,
+            this.usefulLinksToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(51, 21);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -179,6 +184,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label3);
@@ -229,6 +236,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.radioButton14);
             this.groupBox4.Controls.Add(this.radioButton13);
             this.groupBox4.Controls.Add(this.radioButton9);
             this.groupBox4.Controls.Add(this.radioButton10);
@@ -236,11 +244,21 @@
             this.groupBox4.Controls.Add(this.radioButton12);
             this.groupBox4.Location = new System.Drawing.Point(6, 287);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(235, 100);
+            this.groupBox4.Size = new System.Drawing.Size(235, 116);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Comparison:";
             this.groupBox4.Visible = false;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(6, 73);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(83, 20);
+            this.radioButton13.TabIndex = 30;
+            this.radioButton13.Text = "Less than";
+            this.radioButton13.UseVisualStyleBackColor = true;
             // 
             // radioButton9
             // 
@@ -655,7 +673,7 @@
             this.textBox3.Location = new System.Drawing.Point(469, 55);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(291, 436);
+            this.textBox3.Size = new System.Drawing.Size(291, 391);
             this.textBox3.TabIndex = 2;
             // 
             // tabPage3
@@ -756,15 +774,42 @@
             this.textBox1.Size = new System.Drawing.Size(247, 380);
             this.textBox1.TabIndex = 0;
             // 
-            // radioButton13
+            // radioButton14
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(6, 73);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(83, 20);
-            this.radioButton13.TabIndex = 30;
-            this.radioButton13.Text = "Less than";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(110, 73);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(99, 20);
+            this.radioButton14.TabIndex = 31;
+            this.radioButton14.Text = "Greater than";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(469, 452);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(142, 38);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Copy to Clipboard";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(618, 452);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(142, 38);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Reset Output";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // usefulLinksToolStripMenuItem
+            // 
+            this.usefulLinksToolStripMenuItem.Name = "usefulLinksToolStripMenuItem";
+            this.usefulLinksToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.usefulLinksToolStripMenuItem.Text = "Useful links";
+            this.usefulLinksToolStripMenuItem.Click += new System.EventHandler(this.usefulLinksToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -863,6 +908,10 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem usefulLinksToolStripMenuItem;
     }
 }
 

@@ -64,7 +64,10 @@ namespace SXCheatTool
             radioButton9.Text = "Equal";
             radioButton10.Text = "Less than";
             radioButton11.Text = "Not equal";
+            radioButton13.Text = "Greater than\n or Equal";
             radioButton12.Text = "Greater than";
+            radioButton14.Text = "Less than\n or Equal";
+            radioButton14.Visible = false;
             if (comboBox1.SelectedIndex == 0) // memory write
             {
                 radioButton1.Visible = true;
@@ -110,6 +113,8 @@ namespace SXCheatTool
                 radioButton2.Visible = true;
                 textBox4.Visible = true;
                 textBox5.Visible = true;
+                radioButton14.Visible = true;
+                radioButton13.Visible = true;
                 label5.Visible = true;
                 label6.Visible = true;
                 label6.Text = "Value to compare against:";
@@ -247,8 +252,7 @@ namespace SXCheatTool
             if (comboBox1.SelectedIndex == 3)
             {
                 int T = 0, F = 0;
-                string text = "";
-                text = textBox5.Text.PadLeft(8, '0');
+                string text = textBox5.Text.PadLeft(8, '0');
                 if (radioButton5.Checked)
                     T = 1;
                 if (radioButton6.Checked)
@@ -261,6 +265,18 @@ namespace SXCheatTool
                     text = textBox5.Text.PadLeft(16, '0');
                     text = text.Substring(0, 8) + " " + text.Substring(8);
                 }
+                if (radioButton9.Checked)
+                    F = 5;
+                if (radioButton10.Checked)
+                    F = 3;
+                if (radioButton11.Checked)
+                    F = 6;
+                if (radioButton12.Checked)
+                    F = 1;
+                if (radioButton13.Checked)
+                    F = 2;
+                if (radioButton14.Checked)
+                    F = 4;
                 text = "1" + T + Convert.ToInt32(radioButton2.Checked) + F + "00" + textBox4.Text.PadLeft(10, '0') + text + System.Environment.NewLine;
                 text = text.Substring(0, 8) + " " + text.Substring(8);
                 text = text.Substring(0, 17) + " " + text.Substring(17);
@@ -395,6 +411,27 @@ namespace SXCheatTool
                 client.DownloadFile("https://github.com/DarkFlare69/SXCheatTool/raw/master/Release/SXCheatTool.exe", "SX Cheat Tool-latest.exe");
                 MessageBox.Show("The latest update has just been downloaded! You can close this application and delete it. Run the 'SX Cheat Tool-latest.exe' file alongside this one.", "Finished");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+                MessageBox.Show("You can't copy an empty output", "Error!");
+            else
+            {
+                System.Windows.Forms.Clipboard.SetText(textBox3.Text);
+                MessageBox.Show("Text copied to clipboard!", "Success!");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "";
+        }
+
+        private void usefulLinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/DarkFlare69/SXCheatTool/blob/master/README.md#sxcheattool");
         }
     }
 }
