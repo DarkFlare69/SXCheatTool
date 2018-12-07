@@ -1,5 +1,5 @@
-D:\VS\SXCheatTool\SXCheatTool\bin\Debug\SXCheatTool.exe
 D:\VS\SXCheatTool\SXCheatTool\bin\Debug\SXCheatTool.exe.config
+D:\VS\SXCheatTool\SXCheatTool\bin\Debug\SXCheatTool.exe
 D:\VS\SXCheatTool\SXCheatTool\bin\Debug\SXCheatTool.pdb
 D:\VS\SXCheatTool\SXCheatTool\obj\Debug\SXCheatTool.Form1.resources
 D:\VS\SXCheatTool\SXCheatTool\obj\Debug\SXCheatTool.Properties.Resources.resources

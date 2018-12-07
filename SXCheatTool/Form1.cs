@@ -431,7 +431,7 @@ namespace SXCheatTool
 
         private void usefulLinksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/DarkFlare69/SXCheatTool/blob/master/README.md#sxcheattool");
+            System.Diagnostics.Process.Start("https://github.com/DarkFlare69/SXCheatTool/blob/master/README.md#useful-links");
         }
     }
 }
