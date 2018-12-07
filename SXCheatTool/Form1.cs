@@ -23,7 +23,7 @@ namespace SXCheatTool
 
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This is a program designed to make working with the SX OS cheat codetypes easier for people who do not want to or have the time to learn about the cheat codetypes.\n\nAll conversions will be done illicitly. There will be no logic checking. If you want your code to work, then make sure you enter actual information and not random stuff, because the program will accept pretty much anything as an input and doesn't care if it will produce a working code or not.", "About");
+            MessageBox.Show("Version number: 1.03\n\nThis is a program designed to make working with the SX OS cheat codetypes easier for people who do not want to or have the time to learn about the cheat codetypes.\n\nAll conversions will be done illicitly. There will be no logic checking. If you want your code to work, then make sure you enter actual information and not random stuff, because the program will accept pretty much anything as an input and doesn't care if it will produce a working code or not.", "About");
         }
 
         private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
