@@ -10,5 +10,5 @@ SX Code Thread: https://gbatemp.net/threads/cheat-codes-sx-os-add-and-request.52
 SX Cheat Hacker Guide: https://sx.xecuter.com/download/cheathacker_guide.txt<br/>
 
 # Credits
--DarkFlare for the program and idea
+-DarkFlare for the program and idea<br/>
 -Team Xecuter for SX OS and codetypes
