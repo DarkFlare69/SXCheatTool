@@ -8,6 +8,7 @@ Download the latest version here: https://github.com/DarkFlare69/SXCheatTool/raw
 
 # Features
 -Updater: Check for updates from this repo and download the latest
+
 -Supports majority of SX OS and Atmosphere codetypes
 
 # Screenshots
